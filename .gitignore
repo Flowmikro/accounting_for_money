@@ -1,5 +1,7 @@
 venv
 .idea
+alembic
+alembic.ini
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -130,11 +132,11 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder project settings
+# Spyder project config_api
 .spyderproject
 .spyproject
 
-# Rope project settings
+# Rope project config_api
 .ropeproject
 
 # mkdocs documentation
