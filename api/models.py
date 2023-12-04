@@ -10,7 +10,7 @@ class CategoryModel(config_api.Base):
 
     id: Mapped[int] = mapped_column(primary_key=True, unique=True)
     category_name: Mapped[str] = mapped_column(unique=True)
-    expenses: Mapped[list['ExpensesModel']] = relationship(back_populates='category.id')
+    expenses: Mapped[list['ExpensesModel']] = relationship(back_populates='category_id')
 
 
 class ExpensesModel(config_api.Base):
@@ -19,6 +19,6 @@ class ExpensesModel(config_api.Base):
     id: Mapped[int] = mapped_column(primary_key=True, unique=True)
     category: Mapped[int] = mapped_column(ForeignKey('category.id'))
     summa: Mapped[int]
-    date: Mapped[datetime] = mapped_column(DateTime, default=datetime.now)
+    date: Mapped[datetime] = mapped_column(DateTime, default=datetime.now, nullable=True)
     comment: Mapped[str] = mapped_column(String(250))
     category_id: Mapped[CategoryModel] = relationship(back_populates='expenses')
