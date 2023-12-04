@@ -3,7 +3,7 @@ import contextlib
 from typing import AsyncIterator
 from fastapi import FastAPI
 
-from api.api_views import user_router
+from api.api_views import expense_router
 
 
 @contextlib.asynccontextmanager
@@ -15,4 +15,4 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 
 app = FastAPI(title="Money API", lifespan=lifespan)
 
-app.include_router(user_router, prefix="/api", tags=["/api"])
+app.include_router(expense_router, prefix="/api", tags=["/api"])
