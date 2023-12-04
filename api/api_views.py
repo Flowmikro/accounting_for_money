@@ -5,10 +5,10 @@ import config_api
 from .schemas import ExpensesSchema
 from .models import ExpensesModel
 
-user_router = APIRouter()
+router = APIRouter()
 
 
-@user_router.post('/', response_model=ExpensesSchema)
+@router.post('/', response_model=ExpensesSchema)
 async def create_user(user: ExpensesSchema, session: AsyncSession = Depends(config_api.get_session)):
     valid = ExpensesSchema(**user.dict())
     db_user = ExpensesModel(**valid.dict())
